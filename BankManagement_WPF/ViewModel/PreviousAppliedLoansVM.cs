@@ -31,7 +31,7 @@ namespace BankManagement_WPF.ViewModel
 
         TextBlockValidation textBlockValidation;
 
-        public PreviousAppliedLoansCommand PreviousAppliedLoansCommand { get; set; }
+       
 
         public PreviousAppliedLoansVM()
         {

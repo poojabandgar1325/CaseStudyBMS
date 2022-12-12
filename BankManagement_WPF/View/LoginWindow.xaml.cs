@@ -30,5 +30,7 @@ namespace BankManagement_WPF.View
             SignupWindow signupWindow = new SignupWindow();
             signupWindow.ShowDialog();
         }
+
+      
     }
 }

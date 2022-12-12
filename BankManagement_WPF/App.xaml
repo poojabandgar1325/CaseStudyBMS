@@ -25,7 +25,7 @@
         </Style>
 
         <Style TargetType="Label" x:Key="generalLabelStyle">
-            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontSize" Value="5"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
 

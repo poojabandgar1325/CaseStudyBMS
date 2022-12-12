@@ -63,6 +63,7 @@
 
                 <Button Content="Create Account"
                     Command="{Binding SignupCommand}"
+                    
                     Margin="10,0,0,0"
                     Grid.Column="1"
                     HorizontalAlignment="Left"

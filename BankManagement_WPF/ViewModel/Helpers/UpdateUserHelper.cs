@@ -15,12 +15,8 @@ namespace BankManagement_WPF.ViewModel.Helpers
         public const string BASE_URL = "http://localhost:7001/api/";
         public const string PUT_URL = "User/UpdateUser/{0}";
         public const string LOANSTATUS_PUT_URL = "Loan/statusUpdate/{0}";
-        public UpdateUserHelper()
-        {
-
-        }
-
-        public async Task<string> UpdateUser(string userName, UserDetail userDetail)
+       
+        public static async Task<string> UpdateUserAsync(string userName, UserDetail userDetail)
         {
             string agent;
             string URL = BASE_URL +  string.Format(PUT_URL, userName);
@@ -49,6 +45,7 @@ namespace BankManagement_WPF.ViewModel.Helpers
             return agent;
 
         }
+              
 
     }
 }

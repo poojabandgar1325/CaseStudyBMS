@@ -23,6 +23,18 @@ namespace BankManagement_WPF.View
         public UserDashboard()
         {
             InitializeComponent();
+            Loaded += UserDashboard_Loaded;
+        }
+
+        private void UserDashboard_Loaded(object sender, RoutedEventArgs e)
+        {
+           if(DataContext is ICloseWindow vm)
+            {
+                vm.Close += () =>
+                {
+                    this.Close();
+                };
+            }
         }
 
         private void ApplyLoan_Clicked(object sender, RoutedEventArgs e)
@@ -33,11 +45,18 @@ namespace BankManagement_WPF.View
         {
             DataContext = new UpdateUserVM();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ViewUser_Clicked(object sender, RoutedEventArgs e)
         {
-            LoginWindow obj = new LoginWindow();
-            obj.Show();
+            DataContext = new UserDetailVM();
         }
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //UserDashboard a = new UserDashboard();
+        //    //a.Close();
+        //    LoginWindow obj = new LoginWindow();
+        //    obj.Show();
+            
+        //}
 
         private void ViewLoan_Clicked(object sender, RoutedEventArgs e)
         {

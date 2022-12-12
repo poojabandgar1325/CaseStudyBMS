@@ -10,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BankManagement_WPF.View
 {
     /// <summary>
-    /// Interaction logic for ApplyLoanWindow.xaml
+    /// Interaction logic for ViewUserInfo.xaml
     /// </summary>
-    public partial class ApplyLoanWindow : Window
+    public partial class ViewUserInfo : UserControl
     {
-        public ApplyLoanWindow()
+        public ViewUserInfo()
         {
             InitializeComponent();
         }
-        
-        private void PreviousAppliedButton_Click(object sender, RoutedEventArgs e)
-        {
-            new PreviousAppliedLoansWindow().Show();
-        }
     }
-
 }

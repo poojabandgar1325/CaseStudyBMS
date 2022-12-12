@@ -75,23 +75,19 @@ namespace BankManagement_WPF.ViewModel
         TextBlockValidation textBlockValidation;
         
         public ApplyLoanCommand ApplyLoanCommand { get; set; }
-        public PreviousAppliedLoansCommand PreviousAppliedLoansCommand { get; set; }
+        
 
         public ApplyLoanVM()
         {
             //Session Check
             LoanDate = DateTime.Today.ToString("MM/dd/yyyy").Replace('-','/');
             ROI = "0";
-            PreviousAppliedLoansCommand = new PreviousAppliedLoansCommand(this);
+           
             ApplyLoanCommand = new ApplyLoanCommand(this);
             textBlockValidation = new TextBlockValidation();
         }
 
-        public void PreviousAppliedLoanWindowOpen()
-        {
-            PreviousAppliedLoansWindow loansWindow = new PreviousAppliedLoansWindow();
-            loansWindow.ShowDialog();
-        }
+      
 
         public async void CreateNewLoan()
         {

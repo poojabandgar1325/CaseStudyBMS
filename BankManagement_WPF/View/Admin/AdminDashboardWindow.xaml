@@ -7,8 +7,7 @@
         xmlns:vm="clr-namespace:BankManagement_WPF.ViewModel"      
         mc:Ignorable="d"
         Title="Admin Dashboard" Height="450" Width="800"
-        x:Name="_window"
-        >
+        x:Name="_window" >
     
 
     <Window.Resources>
@@ -58,48 +57,44 @@
                     <DataGridTextColumn Header="Duration" Width="*" Binding="{Binding LoanDuration}"/>
                     <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}"/>
 
-                </DataGrid.Columns>
-                
-                
 
-                
-                <!--<DataGridTemplateColumn Header="Details">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Approve" Command="{Binding DataContext.UpdateCommand, ElementName=_window}" CommandParameter="{Binding}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
-                    
-                
-                <!--<DataGridTemplateColumn Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/> 
-                                    <ColumnDefinition Width="auto"/> 
-                                </Grid.ColumnDefinitions>
-                                <Button 
-                                        Command="{Binding DataContext.ApprovedStatusCommand, ElementName=_window}" CommandParameter="{Binding}"
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid DataContext="{StaticResource AllLoansVM}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button 
+                                        Command="{Binding ApprovedStatusCommand}"
                                         Content="Approve"
                                         Background="White"
-                                        Foreground="Red" FontSize="12" BorderThickness="2" 
+                                        Foreground="Green" FontSize="12" BorderThickness="2" 
                                         BorderBrush="DarkBlue"/>
-                                <Button Margin="5,0" 
+                                    <Button Margin="5,0" 
                                             Grid.Column="1" 
-                                             Command="{Binding DataContext.RejectCommand, ElementName=_window}" CommandParameter="{Binding}"
+                                            Command="{Binding RejectCommand}"
                                             Content="Reject" Background="White" 
                                             Foreground="Red"
                                             FontSize="12"
                                             BorderThickness="2"
                                             BorderBrush="DarkBlue"/>
-                            </Grid>
+                                </Grid>
 
-                  
-                        </DataTemplate> 
-                    </DataGridTemplateColumn.CellTemplate> 
-                </DataGridTemplateColumn>-->
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+                
+
+                
+
+                
+                    
+
 
 
 

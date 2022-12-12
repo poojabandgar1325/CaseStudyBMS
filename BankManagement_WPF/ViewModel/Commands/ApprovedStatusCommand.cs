@@ -7,16 +7,15 @@ using System.Windows.Input;
 
 namespace BankManagement_WPF.ViewModel.Commands
 {
-    class PreviousAppliedLoansCommand : ICommand
+    class ApprovedStatusCommand : ICommand
     {
-        public ApplyLoanVM VM { get; set; }
-
-        public PreviousAppliedLoansCommand(ApplyLoanVM vm)
+        public AllLoansVM VM { get; set; }
+        public ApprovedStatusCommand(AllLoansVM vm)
         {
             VM = vm;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged; 
 
         public bool CanExecute(object parameter)
         {
@@ -25,7 +24,7 @@ namespace BankManagement_WPF.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            VM.PreviousAppliedLoanWindowOpen();
+            VM.ApproveLoan();
         }
     }
 }

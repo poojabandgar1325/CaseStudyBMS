@@ -7,10 +7,10 @@ using System.Windows.Input;
 
 namespace BankManagement_WPF.ViewModel.Commands
 {
-    public class DashboardUpdateDetailsCommand : ICommand
+    class RejectCommand : ICommand
     {
-        public UserDetailVM VM { get; set; }
-        public DashboardUpdateDetailsCommand(UserDetailVM vm)
+        public AllLoansVM VM { get; set; }
+        public RejectCommand(AllLoansVM vm)
         {
             VM = vm;
         }
@@ -19,12 +19,12 @@ namespace BankManagement_WPF.ViewModel.Commands
 
         public bool CanExecute(object parameter)
         {
-            return true;
+           return true;
         }
 
         public void Execute(object parameter)
         {
-            VM.OpenUpdateUserDetailsWindow();
+            VM.RejectLoan();
         }
     }
 }

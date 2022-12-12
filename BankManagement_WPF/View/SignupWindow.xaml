@@ -8,7 +8,7 @@
         xmlns:components="clr-namespace:BankManagement_WPF.View.Components"
         Background="Silver"
         mc:Ignorable="d"
-        Title="Create Account" Height="600" Width="450">
+        Title="Create Account" Height="500" Width="450">
 
     <Window.Resources>
         <vm:SignupVM x:Key="SignupVm"/>
@@ -16,13 +16,13 @@
 
     <StackPanel
         DataContext="{StaticResource SignupVm}"
-        Margin="10">
+        Margin="1">
         <Label Content="Create Account"
                 Style="{StaticResource HeadingLabelStyle}"/>
 
         <StackPanel
-            Margin="10,10,0,0"
-            HorizontalAlignment="Center" Height="500" Width="350">
+            Margin="1,1,0,0"
+            HorizontalAlignment="Center" Height="450" Width="350">
             <Label
             
             Content="Name"

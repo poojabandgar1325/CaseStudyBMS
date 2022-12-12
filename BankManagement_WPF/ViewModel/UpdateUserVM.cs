@@ -1,4 +1,5 @@
 ﻿using BankManagement_WPF.Model;
+using BankManagement_WPF.Validations;
 using BankManagement_WPF.ViewModel.Commands;
 using BankManagement_WPF.ViewModel.Helpers;
 using System;
@@ -7,175 +8,233 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace BankManagement_WPF.ViewModel
 {
-         class UpdateUserVM : INotifyPropertyChanged
+    class UpdateUserVM : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
         {
-            public event PropertyChangedEventHandler PropertyChanged;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private string name;
 
-            private void OnPropertyChanged(string propertyName)
+        public string Name
+        {
+            get { return name; }
+            set
             {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                name = value;
+                OnPropertyChanged("Name");
             }
-            private string name;
+        }
 
-            public string Name
+        private string userName;
+
+        public string UserName
+        {
+            get { return userName; }
+            set
             {
-                get { return name; }
-                set
-                {
-                    name = value;
-                    OnPropertyChanged("Name");
-                }
+                userName = value;
+                OnPropertyChanged("userName");
             }
+        }
 
-            private string userName;
+        private string password;
 
-            public string UserName
+        public string PassWord
+        {
+            get { return password; }
+            set
             {
-                get { return userName; }
-                set
-                {
-                    userName = value;
-                    OnPropertyChanged("userName");
-                }
+                password = value;
+                OnPropertyChanged("PassWord");
             }
+        }
 
-            private string password;
+        private string address;
 
-            public string PassWord
+        public string Address
+        {
+            get { return address; }
+            set
             {
-                get { return password; }
-                set
-                {
-                    password = value;
-                    OnPropertyChanged("PassWord");
-                }
+                address = value;
+                OnPropertyChanged("Address");
             }
+        }
 
-            private string address;
+        private string state;
 
-            public string Address
+        public string State
+        {
+            get { return state; }
+            set
             {
-                get { return address; }
-                set
-                {
-                    address = value;
-                    OnPropertyChanged("Address");
-                }
+                state = value;
+                OnPropertyChanged("State");
             }
+        }
 
-            private string state;
+        private string country;
 
-            public string State
+        public string Country
+        {
+            get { return country; }
+            set
             {
-                get { return state; }
-                set
-                {
-                    state = value;
-                    OnPropertyChanged("State");
-                }
+                country = value;
+                OnPropertyChanged("Country");
             }
+        }
 
-            private string country;
+        private string emailId;
 
-            public string Country
+        public string EmailId
+        {
+            get { return emailId; }
+            set
             {
-                get { return country; }
-                set
-                {
-                    country = value;
-                    OnPropertyChanged("Country");
-                }
+                emailId = value;
+                OnPropertyChanged("EmailId");
             }
+        }
 
-            private string emailId;
+        private string pan;
 
-            public string EmailId
+        public string PAN
+        {
+            get { return pan; }
+            set
             {
-                get { return emailId; }
-                set
-                {
-                    emailId = value;
-                    OnPropertyChanged("EmailId");
-                }
+                pan = value;
+                OnPropertyChanged("PAN");
             }
+        }
 
-            private string pan;
+        private string contactNo;
 
-            public string PAN
+        public string ContactNo
+        {
+            get { return contactNo; }
+            set
             {
-                get { return pan; }
-                set
-                {
-                    pan = value;
-                    OnPropertyChanged("PAN");
-                }
+                contactNo = value;
+                OnPropertyChanged("ContactNo");
             }
+        }
 
-            private string contactNo;
 
-            public string ContactNo
+        public string EndDate { get; set; }
+
+        private string dob;
+
+        public string DOB
+        {
+            get { return dob; }
+            set
             {
-                get { return contactNo; }
-                set
-                {
-                    contactNo = value;
-                    OnPropertyChanged("ContactNo");
-                }
+                dob = value;
+                OnPropertyChanged("DOB");
             }
+        }
 
+        private string accountType;
 
-            public string EndDate { get; set; }
-
-            private string dob;
-
-            public string DOB
+        public string AccountType
+        {
+            get { return accountType; }
+            set
             {
-                get { return dob; }
-                set
-                {
-                    dob = value;
-                    OnPropertyChanged("DOB");
-                }
+                accountType = value;
+                OnPropertyChanged("AccountType");
             }
+        }
 
-            private string accountType;
+        private string warning;
 
-            public string AccountType
-            {
-                get { return accountType; }
-                set
-                {
-                    accountType = value;
-                    OnPropertyChanged("AccountType");
-                }
-            }
+        public string Warning
+        {
+            get { return warning; }
+            set { warning = value; OnPropertyChanged("Warning"); }
+        }
 
-            private string warning;
+        public UpdateAccountCommand updateAccountCommand { get; set; }
 
-            public string Warning
-            {
-                get { return warning; }
-                set { warning = value; OnPropertyChanged("Warning"); }
-            }
+        TextBlockValidation textBlockValidation;
 
-        public UpdateAccountCommand updateAccountCommand { get; set; } 
+        public UpdateUserVM()
+        {
+            GetUserDetails();
+           // EndDate = DateTime.Now.ToString("dd/MM/yyyy");
+            updateAccountCommand = new UpdateAccountCommand(this);
+            textBlockValidation = new TextBlockValidation();
+        }
+        private async void GetUserDetails()
+        {
+            var userDetail = await LoginSecurityHelper.GetUserDetail(GlobalVariables.USERNAME);
 
-            // TextBlockValidation textBlockValidation;
-
-            public UpdateUserVM()
-            {
-             EndDate = DateTime.Now.ToString("dd/MM/yyyy");
-             updateAccountCommand = new UpdateAccountCommand(this);
-            //textBlockValidation = new TextBlockValidation();
+            UserName = userDetail.UserName;
+            PassWord = userDetail.Password;
+            Name = userDetail.Name;
+            Address = userDetail.Address;
+            State = userDetail.State;
+            Country = userDetail.Country;
+            EmailId = userDetail.Email;
+            PAN = userDetail.PAN.ToString();
+            ContactNo = userDetail.Contact.ToString();
+            DOB = userDetail.DOB.ToString("MM/dd/yyyy");
+            AccountType = userDetail.AccountType;
         }
 
         public async void UpdateAccount()
         {
-            UpdateUserHelper updateUserHelper = new UpdateUserHelper();
+            if (string.IsNullOrEmpty(UserName) || string.IsNullOrEmpty(PassWord) || string.IsNullOrEmpty(EmailId) || string.IsNullOrEmpty(PAN) || string.IsNullOrEmpty(ContactNo) || string.IsNullOrEmpty(DOB))
+            {
+                Warning = "All Fields are mandatory";
+                return;
+            }
+
+            if (textBlockValidation.UserNameValidation(UserName))
+            {
+                Warning = " 7 < UserName > 21 and, must not have special character except _";
+                return;
+            }
+
+            if (!textBlockValidation.PasswordValidation(PassWord))
+            {
+                Warning = "Password must be inbetween 8-20 and must have 1 Caps, 1 Small and 1 Special character";
+                return;
+            }
+
+            if (!textBlockValidation.EmailIDValidation(EmailId))
+            {
+                Warning = "Invalid Email ID";
+                return;
+            }
+
+            if (!textBlockValidation.PANValidation(PAN))
+            {
+                Warning = "Invalid PAN Number, 1st digit should not be 0 and must have 10 digits.";
+                return;
+            }
+
+            if (!textBlockValidation.ContactValidation(ContactNo))
+            {
+                Warning = "Invalid Contact Number, 1st digit should not be 0 and must have 10 digits.";
+                return;
+            }
+
+            if (textBlockValidation.FutureDateValidation(DOB))
+            {
+                Warning = "Date should not be future date";
+                return;
+            }
+
+
 
             string[] dates = DOB.Split(" ")[0].Split("/");
             string myDate = dates[1] + "/" + dates[0] + "/" + dates[2];
@@ -195,25 +254,22 @@ namespace BankManagement_WPF.ViewModel
                 AccountType = AccountType.Split(":")[1].Trim()
             };
 
-            string createAccountStatus = await updateUserHelper.UpdateUser(GlobalVariables.USERNAME, user);
-            
+            string updateAccountStatus = await UpdateUserHelper.UpdateUserAsync(GlobalVariables.USERNAME, user);
+            Warning = updateAccountStatus;
 
-            if (createAccountStatus == "Account created Succesfully")
+            if (updateAccountStatus == "Account created Succesfully")
             {
                 Warning = "Your Account Created Successfully";
             }
-            else if (createAccountStatus == "User Already Exists")
+            else if (updateAccountStatus == "User Already Exists")
             {
                 Warning = "User Name is already taken";
             }
             else
             {
-                Warning = "Something went wrong !!!";
+                Warning = "Your Account is Created Successfully";
             }
 
         }
-        }
     }
-
-
-
+}

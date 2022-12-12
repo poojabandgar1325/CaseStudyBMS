@@ -6,75 +6,74 @@
              xmlns:local="clr-namespace:BankManagement_WPF.View" 
              xmlns:vm="clr-namespace:BankManagement_WPF.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="430" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800">
     <UserControl.Resources>
-        <vm:UserDetailVM x:Key="userDetailVm"/>
+        <vm:UpdateUserVM x:Key="updateUserVm"/>
+        
     </UserControl.Resources>
 
     <StackPanel Background="Silver"
         Margin="10">
-        <!--<Label HorizontalAlignment="Right"
-            Content="UserName"
-            />-->
-        <Label  Foreground="Blue" HorizontalAlignment="Right" x:Name="lblname" Content="{ Binding UserName, Source={StaticResource userDetailVm}}" />
+
+        <Label  Foreground="Blue" HorizontalAlignment="Right" x:Name="lblname" Content="{ Binding UserName, Source={StaticResource updateUserVm}}" />
 
         <Separator 
             Background="Black"/>
 
         <StackPanel
             Margin="10,10,0,0"
-            HorizontalAlignment="Center" Height="500" Width="350">
+            HorizontalAlignment="Center" Height="400" Width="350">
             <Label
             Content="Name"
             Style ="{StaticResource generalLabelStyle}"/>
-            <TextBox Name="txtName" Text="{Binding Name, Source={StaticResource userDetailVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Name="txtName" Text="{Binding Name, Source={StaticResource updateUserVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Label
             Content="Password"
             Style ="{StaticResource generalLabelStyle}"/>
-            <TextBox Name="txtPassword" Text="{Binding PassWord, Source={StaticResource userDetailVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Name="txtPassword" Text="{Binding PassWord, Source={StaticResource updateUserVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Label
             Content="Address"
             Style ="{StaticResource generalLabelStyle}"/>
-            <TextBox Name="txtAddress" Text="{Binding Address, Source={StaticResource userDetailVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Name="txtAddress" Text="{Binding Address, Source={StaticResource updateUserVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Label
             Content="State"
             Style ="{StaticResource generalLabelStyle}"/>
-            <TextBox Name="txtState" Text="{Binding State, Source={StaticResource userDetailVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Name="txtState" Text="{Binding State, Source={StaticResource updateUserVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Label
             Content="Country"
             Style ="{StaticResource generalLabelStyle}"/>
-            <TextBox Name="txtCountry" Text="{Binding Country, Source={StaticResource userDetailVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Name="txtCountry" Text="{Binding Country, Source={StaticResource updateUserVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Label
             Content="Email ID"
             Style ="{StaticResource generalLabelStyle}"/>
-            <TextBox Name="txtEmail" Text="{Binding EmailId, Source={StaticResource userDetailVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Name="txtEmail" Text="{Binding EmailId, Source={StaticResource updateUserVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Label
             Content="PAN Number"
             Style ="{StaticResource generalLabelStyle}"/>
-            <TextBox Name="txtPan" Text="{Binding PAN, Source={StaticResource userDetailVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Name="txtPan" Text="{Binding PAN, Source={StaticResource updateUserVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Label
             Content="Contact Number"
             Style ="{StaticResource generalLabelStyle}"/>
-            <TextBox Name="txtContact" Text="{Binding ContactNo, Source={StaticResource userDetailVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Name="txtContact" Text="{Binding ContactNo, Source={StaticResource updateUserVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Label
             Content="Date Of Birth"
             Style ="{StaticResource generalLabelStyle}"/>
-            <DatePicker  Name="txtDate" Text="{Binding DOB, Source={StaticResource userDetailVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <DatePicker  Name="txtDate" Text="{Binding DOB, Source={StaticResource updateUserVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Label
             Content="Account Type"
             Style ="{StaticResource generalLabelStyle}"/>
            
-            <ComboBox Margin="5" Name="cbAccountType"
-            SelectedItem="{Binding AccountType, Source={StaticResource userDetailVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ComboBox  Name="cbAccountType"
+            SelectedItem="{Binding AccountType, Source={StaticResource updateUserVm}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ComboBoxItem>
                     Current
                 </ComboBoxItem>
@@ -82,13 +81,15 @@
                     Saving
                 </ComboBoxItem>
             </ComboBox>
+            
             <Button
             Command="{Binding UpdateAccountCommand}"
             Content="Update"
-            Width="296"
-            FontSize="20"
-            Height="35"
-            BorderThickness="0"
+            Width="250"
+            FontSize="18"
+            Height="25"
+                Margin="10"
+            BorderThickness="1"
             Background="SkyBlue"
             Foreground="Black"
             FontWeight="Bold"

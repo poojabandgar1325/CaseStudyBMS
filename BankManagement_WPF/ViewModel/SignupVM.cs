@@ -235,6 +235,8 @@ namespace BankManagement_WPF.ViewModel
 
             string createAccountStatus = await SignupHelper.CreateAccount(user);
 
+            
+
             if (createAccountStatus == "Account created Succesfully")
             {
                 Warning = "Your Account Created Successfully";

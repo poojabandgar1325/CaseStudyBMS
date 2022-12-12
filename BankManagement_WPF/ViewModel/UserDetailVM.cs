@@ -147,37 +147,15 @@ namespace BankManagement_WPF.ViewModel
             }
         }
 
-        public DashboardApplyLoanCommand DashboardApplyLoanCommand { get; set; }
-        public DashboardPreviousLoanCommand DashboardPreviousLoanCommand { get; set; }
-        public DashboardUpdateDetailsCommand DashboardUpdateDetailsCommand { get; set; }
-
+      
         public UserDetailVM()
         {
             GetUserDetails();
-            DashboardApplyLoanCommand = new DashboardApplyLoanCommand(this);
-            DashboardPreviousLoanCommand = new DashboardPreviousLoanCommand(this);
-            DashboardUpdateDetailsCommand = new DashboardUpdateDetailsCommand(this);
+           
 
         }
 
-        public void OpenApplyLoanWindow()
-        {
-            ApplyLoanWindow loanWindow = new ApplyLoanWindow();
-            loanWindow.ShowDialog();
-        }
-
-        public void OpenPreviousLoanWindow()
-        {
-            PreviousAppliedLoansWindow previousloanWindow = new PreviousAppliedLoansWindow();
-            previousloanWindow.ShowDialog();
-        }
-
-        public void OpenUpdateUserDetailsWindow()
-        {
-            UpdateUserDetailWindow updatedUserWindow = new UpdateUserDetailWindow();
-            updatedUserWindow.ShowDialog();
-        }
-
+       
         public void Logout()
         {
             //Todo
