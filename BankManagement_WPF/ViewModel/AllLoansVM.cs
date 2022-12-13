@@ -16,7 +16,7 @@ using System.Windows;
 
 namespace BankManagement_WPF.ViewModel
 {
-    class AllLoansVM : INotifyPropertyChanged
+    public class AllLoansVM : INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;

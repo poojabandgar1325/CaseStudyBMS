@@ -1,4 +1,6 @@
+using AutoMapper;
 using LoginSecurity.Data;
+using LoginSecurity.Controllers;
 using LoginSecurity.Models.Domains;
 using LoginSecurity.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +21,8 @@ namespace BMSTest
         private LoanDetail loanDetail_one;
         private UserDetail userDetail_one;
         private Mock<IApplyLoanRepositry> _loanRepoMock;
+        private Mock<IMapper> mapper;
+        private LoanController LoanController;
 
         public Test()
         {
@@ -82,34 +86,34 @@ namespace BMSTest
             }
         }
 
-        [Test]
-        public void GetLoanByID_Success_CheckValueFromDb()
-        {
-            //arrange
-            var options = new DbContextOptionsBuilder<BankManagementDbContext>()
-                .UseInMemoryDatabase("tempLoan").Options;
+        //[Test]
+        //public void GetLoanByID_Success_CheckValueFromDb()
+        //{
+        //    //arrange
+        //    var options = new DbContextOptionsBuilder<BankManagementDbContext>()
+        //        .UseInMemoryDatabase("tempLoan").Options;
 
 
 
-            //act
-            using (var context = new BankManagementDbContext(options))
-            {
+        //    //act
+        //    using (var context = new BankManagementDbContext(options))
+        //    {
               
-                var repo = new ApplyLoanRepositry(context);
-                _ = repo.GetLoanAsync(loanDetail_one.LoanId);
-            }
+        //        var repo = new ApplyLoanRepositry(context);
+        //        _ = repo.GetLoanAsync(loanDetail_one.LoanId);
+        //    }
 
 
 
-            //assert
-            using (var context = new BankManagementDbContext(options))
-            {
-                var loanFromDb = context.LoanDetails.FirstOrDefault(x => x.LoanId == loanDetail_one.LoanId);
+        //    //assert
+        //    using (var context = new BankManagementDbContext(options))
+        //    {
+        //        var loanFromDb = context.LoanDetails.FirstOrDefault(x => x.LoanId == loanDetail_one.LoanId);
                
-                Assert.AreEqual(loanDetail_one.UserName, loanFromDb.UserName);
+        //        Assert.AreEqual(loanDetail_one.UserName, loanFromDb.UserName);
                 
-            }
-        }
+        //    }
+        //}
 
 
         //UpdateLoanStatus
@@ -238,14 +242,16 @@ namespace BMSTest
             _loanRepoMock.Verify(x => x.GetAllAsync(), Times.Never);
         }
 
-            //[Test]
-            //public void DateValidator_InputExpectedDateRange_DateValidity()
-            //{
-            //    TextBlockValidation textBlockValidation = new(() => DateTime.Now);
+        //[Test]
+        //public void CallRequest_VerifyPost_Success()
+        //{
+        //    _loanRepoMock.Setup(x => x.SaveLoanDeatilAsync(It.IsAny<LoanDetail>()))
+        //        .ReturnsAsync(true);
 
-            //    var result = textBlockValidation.FutureDateValidation(DateTime.Now.AddSeconds(100));
+        //    var res = LoanController.Post(loanDetail_one);
 
-            //    Assert.AreEqual(false, result);
-            //}
-        }
+        //    Assert.AreEqual(true, res.IsCompleted);
+
+        //}
+    }
 }

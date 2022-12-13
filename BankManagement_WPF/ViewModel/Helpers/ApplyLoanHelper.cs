@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 
 namespace BankManagement_WPF.ViewModel.Helpers
 {
-    class ApplyLoanHelper
+    public class ApplyLoanHelper : IApplyLoanHelper
     {
-        public const string BASE_URL = "http://localhost:7001/api/"; 
+        public const string BASE_URL = "http://localhost:7001/api/";
         public const string POST_URL = "Loan";
 
-        public static async Task<string> CreateLoan(LoanDetail loanDetail)
+        
+
+        public async Task<string> CreateLoan(LoanDetail loanDetail)
         {
             string agent;
             string URL = BASE_URL + POST_URL;
@@ -28,4 +30,5 @@ namespace BankManagement_WPF.ViewModel.Helpers
             return agent;
         }
     }
+
 }

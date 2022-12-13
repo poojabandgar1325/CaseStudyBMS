@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BankManagement_WPF.ViewModel
 {
-    class ApplyLoanVM :  INotifyPropertyChanged
+    public class ApplyLoanVM :  INotifyPropertyChanged
     {
 
         private string loanType;
@@ -132,7 +132,9 @@ namespace BankManagement_WPF.ViewModel
                 RateOfInterest = float.Parse(ROI),                
             };
 
-            string status = await ApplyLoanHelper.CreateLoan(loan);
+            //string status = await ApplyLoanHelper.CreateLoan(loan);
+            ApplyLoanHelper loanHelper = new ApplyLoanHelper();
+            string status = await loanHelper.CreateLoan(loan);
 
             Warning = status;
         }       

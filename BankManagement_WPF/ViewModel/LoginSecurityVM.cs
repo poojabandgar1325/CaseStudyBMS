@@ -14,7 +14,7 @@ using System.Windows;
 
 namespace BankManagement_WPF.ViewModel
 {
-    class LoginSecurityVM : INotifyPropertyChanged, INotifyDataErrorInfo
+   public class LoginSecurityVM : INotifyPropertyChanged, INotifyDataErrorInfo
     {
         private readonly Dictionary<string, List<string>> propertyErrors = new Dictionary<string, List<string>>();
         private string userName;
@@ -63,7 +63,7 @@ namespace BankManagement_WPF.ViewModel
         }
 
 
-        public LoginSecurityCommand LoginSecurityCommand { get; set; }
+       public  LoginSecurityCommand LoginSecurityCommand { get; set; }
         public SignupCommand SignupCommand { get; set; }
 
 
