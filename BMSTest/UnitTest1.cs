@@ -82,6 +82,36 @@ namespace BMSTest
             }
         }
 
+        [Test]
+        public void GetLoanByID_Success_CheckValueFromDb()
+        {
+            //arrange
+            var options = new DbContextOptionsBuilder<BankManagementDbContext>()
+                .UseInMemoryDatabase("tempLoan").Options;
+
+
+
+            //act
+            using (var context = new BankManagementDbContext(options))
+            {
+              
+                var repo = new ApplyLoanRepositry(context);
+                _ = repo.GetLoanAsync(loanDetail_one.LoanId);
+            }
+
+
+
+            //assert
+            using (var context = new BankManagementDbContext(options))
+            {
+                var loanFromDb = context.LoanDetails.FirstOrDefault(x => x.LoanId == loanDetail_one.LoanId);
+               
+                Assert.AreEqual(loanDetail_one.UserName, loanFromDb.UserName);
+                
+            }
+        }
+
+
         //UpdateLoanStatus
         [Test]
         public void UpdateLoanStatusAsync_Success_CheckValueFromDb()
@@ -194,14 +224,28 @@ namespace BMSTest
         }
 
 
-        //[Test]
-        //public void DateValidator_InputExpectedDateRange_DateValidity()
-        //{
-        //    TextBlockValidation textBlockValidation = new(() => DateTime.Now);
 
-        //    var result = textBlockValidation.FutureDateValidation(DateTime.Now.AddSeconds(100));
 
-        //    Assert.AreEqual(false, result);
-        //}
-    }
+        [SetUp]
+        public void SetUp()
+        {
+            _loanRepoMock = new Mock<IApplyLoanRepositry>();
+        }
+
+        [Test]
+        public void GetAllLoan_CheckIfRepoIsCalled()
+        {
+            _loanRepoMock.Verify(x => x.GetAllAsync(), Times.Never);
+        }
+
+            //[Test]
+            //public void DateValidator_InputExpectedDateRange_DateValidity()
+            //{
+            //    TextBlockValidation textBlockValidation = new(() => DateTime.Now);
+
+            //    var result = textBlockValidation.FutureDateValidation(DateTime.Now.AddSeconds(100));
+
+            //    Assert.AreEqual(false, result);
+            //}
+        }
 }
