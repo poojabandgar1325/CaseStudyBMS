@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BMS_API.Repositories
 {
-    public interface IApplyLoanRepositry
+    public interface ILoanRepositry
     {
         Task<LoanDetail> GetLoanAsync(int loanId);
         Task<List<LoanDetail>> GetAllLoanAsync(string userName);

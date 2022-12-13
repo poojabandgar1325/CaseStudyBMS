@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BMS_WPF.ViewModel.Helpers
 {
-    class PreviousAppliedLoansHelper
+    class ViewLoanHelper
     {
         public const string BASE_URL = "http://localhost:7001/api/";
         public const string GET_URL = "Loan/all/{0}";

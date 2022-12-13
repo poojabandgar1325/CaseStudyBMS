@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BMS_WPF.ViewModel
 {
-    class SignupVM : INotifyPropertyChanged
+    class CreateNewUserVM : INotifyPropertyChanged
     {
 
         private string name;
@@ -162,7 +162,7 @@ namespace BMS_WPF.ViewModel
         
         TextBlockValidation textBlockValidation;
 
-        public SignupVM()
+        public CreateNewUserVM()
         {
             EndDate = DateTime.Now.ToString("dd/MM/yyyy");
             CreateAccountCommand = new CreateAccountCommand(this);
@@ -233,7 +233,7 @@ namespace BMS_WPF.ViewModel
                 AccountType = AccountType.Split(":")[1].Trim()
             };
 
-            string createAccountStatus = await SignupHelper.CreateAccount(user);
+            string createAccountStatus = await CreateNewUserHelper.CreateAccount(user);
 
             
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BMS_WPF.ViewModel.Helpers
 {
-    class SignupHelper
+    class CreateNewUserHelper
     {
         public const string BASE_URL = "http://localhost:7001/api/";
         public const string POST_URL = "User";

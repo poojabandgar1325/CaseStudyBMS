@@ -15,16 +15,6 @@ namespace BMS_WPF.ViewModel
             get { return username; }
             set { username = value; }
         }
-
         
-        private int londId;
-
-        public int LOANID
-        {
-            get { return londId; }
-            set { londId = value; }
-        }
-
-
     }
 }

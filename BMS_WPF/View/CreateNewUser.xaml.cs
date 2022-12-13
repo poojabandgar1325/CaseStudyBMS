@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BMS_WPF.View
 {
     /// <summary>
-    /// Interaction logic for PreviousAppliedLoan.xaml
+    /// Interaction logic for SignupWindow.xaml
     /// </summary>
-    public partial class PreviousAppliedLoan : UserControl
+    public partial class CreateNewUser : Window
     {
-        public PreviousAppliedLoan()
+        public CreateNewUser()
         {
             InitializeComponent();
         }
+
     }
 }

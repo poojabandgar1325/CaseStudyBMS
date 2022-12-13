@@ -16,8 +16,8 @@
         <DataTemplate x:Name="applyLoanTemplate" DataType="{x:Type viewmodel:ApplyLoanVM}">
             <local:ApplyLoan DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="viewLoanTemplate" DataType="{x:Type viewmodel:PreviousAppliedLoansVM}">
-            <local:PreviousAppliedLoan DataContext="{Binding}"/>
+        <DataTemplate x:Name="viewLoanTemplate" DataType="{x:Type viewmodel:ViewLoanVM}">
+            <local:ViewLoan DataContext="{Binding}"/>
         </DataTemplate>
         <DataTemplate x:Name="updateUserTemplate" DataType="{x:Type viewmodel:UpdateUserVM}">
             <local:UpdateUserDetails DataContext="{Binding}"/>

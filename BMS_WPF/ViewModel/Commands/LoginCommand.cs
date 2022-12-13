@@ -7,9 +7,9 @@ using System.Windows.Input;
 
 namespace BMS_WPF.ViewModel.Commands
 {
-    public class LoginSecurityCommand : ICommand
+    public class LoginCommand : ICommand
     {
-        public LoginSecurityVM VM { get; set; }
+        public LoginVM VM { get; set; }
 
         public event EventHandler CanExecuteChanged
         {
@@ -17,7 +17,7 @@ namespace BMS_WPF.ViewModel.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public LoginSecurityCommand(LoginSecurityVM vm)
+        public LoginCommand(LoginVM vm)
         {
             VM = vm;
         }

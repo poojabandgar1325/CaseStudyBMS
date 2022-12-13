@@ -1,5 +1,5 @@
-﻿using BMS_WPF.Model;
-using BMS_WPF.Model.RequestData;
+﻿
+using BMS_WPF.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BMS_WPF.ViewModel.Helpers
 {
-    class LoginSecurityHelper
+    class LoginHelper
     {
         public const string BASE_URL = "http://localhost:7001/api/";
         public const string GET_URL = "Login/{0}";

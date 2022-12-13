@@ -60,7 +60,7 @@ namespace BMSTest
             //act
             using (var context = new BankManagementDbContext(options))
             {
-                var repo = new ApplyLoanRepositry(context);
+                var repo = new LoanRepositry(context);
                 _ = repo.SaveLoanDeatilAsync(loanDetail_one);
             }
 

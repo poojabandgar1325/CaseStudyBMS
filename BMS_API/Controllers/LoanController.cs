@@ -15,11 +15,11 @@ namespace BMS_API.Controllers
     [ApiController]
     public class LoanController : ControllerBase
     {
-        private readonly IApplyLoanRepositry userRepository;
+        private readonly ILoanRepositry userRepository;
 
         private readonly IMapper mapper;
 
-        public LoanController(IApplyLoanRepositry userRepository, IMapper mapper)
+        public LoanController(ILoanRepositry userRepository, IMapper mapper)
         {
             this.userRepository = userRepository;
             this.mapper = mapper;

@@ -175,7 +175,7 @@ namespace BMS_WPF.ViewModel
         }
         private async void GetUserDetails()
         {
-            var userDetail = await LoginSecurityHelper.GetUserDetail(GlobalVariables.USERNAME);
+            var userDetail = await LoginHelper.GetUserDetail(GlobalVariables.USERNAME);
 
             UserName = userDetail.UserName;
             PassWord = userDetail.Password;

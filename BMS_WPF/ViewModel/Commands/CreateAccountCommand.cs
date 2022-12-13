@@ -9,8 +9,8 @@ namespace BMS_WPF.ViewModel.Commands
 {
     class CreateAccountCommand : ICommand
     {
-        public SignupVM VM { get; set; }
-        public CreateAccountCommand(SignupVM vm)
+        public CreateNewUserVM VM { get; set; }
+        public CreateAccountCommand(CreateNewUserVM vm)
         {
             VM = vm;
         }

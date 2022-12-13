@@ -7,16 +7,16 @@ using System.Windows.Input;
 
 namespace BMS_WPF.ViewModel.Commands
 {
-    public class SignupCommand : ICommand
+    public class CreateNewUserCommand : ICommand
     {
-        public LoginSecurityVM VM { get; set; }
+        public LoginVM VM { get; set; }
 
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-        public SignupCommand(LoginSecurityVM vm)
+        public CreateNewUserCommand(LoginVM vm)
         {
             VM = vm;
         }

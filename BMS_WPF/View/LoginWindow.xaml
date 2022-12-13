@@ -11,7 +11,7 @@
         >
 
     <Window.Resources>
-        <vm:LoginSecurityVM x:Key="LoginVm"/>
+        <vm:LoginVM x:Key="LoginVm"/>
     </Window.Resources>
     
     <Border Background="Silver" BorderBrush="SkyBlue" BorderThickness="20">

@@ -55,7 +55,7 @@ namespace BMS_API
             
             //Dependency Injection
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IApplyLoanRepositry, ApplyLoanRepositry>();
+            services.AddScoped<ILoanRepositry, LoanRepositry>();
 
             services.AddAutoMapper(typeof(Startup));
 

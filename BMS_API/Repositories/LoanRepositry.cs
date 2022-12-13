@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace BMS_API.Repositories
 {
-    public class ApplyLoanRepositry : IApplyLoanRepositry
+    public class LoanRepositry : ILoanRepositry
     {
         private readonly BankManagementDbContext bankManagementDbContext;
 
-        public ApplyLoanRepositry(BankManagementDbContext bankManagementDbContext)
+        public LoanRepositry(BankManagementDbContext bankManagementDbContext)
         {
             this.bankManagementDbContext = bankManagementDbContext;
         }

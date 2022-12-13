@@ -27,8 +27,8 @@ namespace BMS_WPF.View
 
         private void CreateAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            SignupWindow signupWindow = new SignupWindow();
-            signupWindow.ShowDialog();
+            CreateNewUser createNewUser = new CreateNewUser();
+            createNewUser.ShowDialog();
         }
 
       

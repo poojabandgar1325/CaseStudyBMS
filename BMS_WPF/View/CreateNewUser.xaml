@@ -1,4 +1,4 @@
-﻿<Window x:Class="BMS_WPF.View.SignupWindow"
+﻿<Window x:Class="BMS_WPF.View.CreateNewUser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,21 +8,21 @@
         xmlns:components="clr-namespace:BMS_WPF.View.Components"
         Background="Silver"
         mc:Ignorable="d"
-        Title="Create Account" Height="500" Width="450">
+        Title="Create Account" Height="600" Width="450">
 
     <Window.Resources>
-        <vm:SignupVM x:Key="SignupVm"/>
+        <vm:CreateNewUserVM x:Key="createNewUserVM"/>
     </Window.Resources>
 
     <StackPanel
-        DataContext="{StaticResource SignupVm}"
+        DataContext="{StaticResource createNewUserVM}"
         Margin="1">
         <Label Content="Create Account"
                 Style="{StaticResource HeadingLabelStyle}"/>
 
         <StackPanel
             Margin="1,1,0,0"
-            HorizontalAlignment="Center" Height="450" Width="350">
+            HorizontalAlignment="Center" Height="500" Width="350">
             <Label
             
             Content="Name"

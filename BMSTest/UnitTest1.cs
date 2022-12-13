@@ -20,7 +20,7 @@ namespace BMSTest
     {
         private LoanDetail loanDetail_one;
         private UserDetail userDetail_one;
-        private Mock<IApplyLoanRepositry> _loanRepoMock;
+        private Mock<ILoanRepositry> _loanRepoMock;
         private Mock<IMapper> mapper;
         private LoanController LoanController;
 
@@ -67,7 +67,7 @@ namespace BMSTest
             //act
             using (var context = new BankManagementDbContext(options))
             {
-                var repo = new ApplyLoanRepositry(context);
+                var repo = new LoanRepositry(context);
                 _ = repo.SaveLoanDeatilAsync(loanDetail_one);
             }
 
@@ -130,7 +130,7 @@ namespace BMSTest
             using (var context = new BankManagementDbContext(options))
             {
                 loanDetail_one.Status="Approved";
-                var repo = new ApplyLoanRepositry(context);
+                var repo = new LoanRepositry(context);
                 _ = repo.UpdateStatusAsync(loanDetail_one.LoanId,loanDetail_one.Status);
             }
 
@@ -233,7 +233,7 @@ namespace BMSTest
         [SetUp]
         public void SetUp()
         {
-            _loanRepoMock = new Mock<IApplyLoanRepositry>();
+            _loanRepoMock = new Mock<ILoanRepositry>();
         }
 
         [Test]

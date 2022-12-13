@@ -60,7 +60,7 @@ namespace BMS_WPF.View
 
         private void ViewLoan_Clicked(object sender, RoutedEventArgs e)
         {
-            DataContext = new PreviousAppliedLoansVM();
+            DataContext = new ViewLoanVM();
         }
         
 

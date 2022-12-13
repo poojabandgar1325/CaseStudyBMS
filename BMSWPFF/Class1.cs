@@ -17,16 +17,16 @@ namespace BMSWPFF
         [TestFixture]
         class LoginSecurityVM_Tests
         {
-            private LoginSecurityVM loginSecurityVM;
-            private LoginSecurityCommand loginSecurityCommand;
-            private SignupCommand signupCommand;
+            private LoginVM loginSecurityVM;
+            private LoginCommand loginSecurityCommand;
+            private CreateNewUserCommand signupCommand;
 
             [SetUp]
             public void Setup()
             {
-                loginSecurityVM = new LoginSecurityVM();
-                loginSecurityCommand = new LoginSecurityCommand(loginSecurityVM);
-                signupCommand = new SignupCommand(loginSecurityVM);
+                loginSecurityVM = new LoginVM();
+                loginSecurityCommand = new LoginCommand(loginSecurityVM);
+                signupCommand = new CreateNewUserCommand(loginSecurityVM);
             }
 
             [Test]

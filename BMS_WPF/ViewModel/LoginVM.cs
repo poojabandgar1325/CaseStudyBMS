@@ -1,4 +1,4 @@
-﻿using BMS_WPF.Model.RequestData;
+﻿using BMS_WPF.Model;
 using BMS_WPF.View;
 using BMS_WPF.View.Admin;
 using BMS_WPF.ViewModel.Commands;
@@ -14,10 +14,10 @@ using System.Windows;
 
 namespace BMS_WPF.ViewModel
 {
-   public class LoginSecurityVM : INotifyPropertyChanged, INotifyDataErrorInfo
+   public class LoginVM : INotifyPropertyChanged
+        //INotifyDataErrorInfo
     {
-        private readonly Dictionary<string, List<string>> propertyErrors = new Dictionary<string, List<string>>();
-        private string userName;
+       private string userName;
 
         public string UserName
         {
@@ -26,16 +26,7 @@ namespace BMS_WPF.ViewModel
             {
                 userName = value;
                 OnPropertyChanged("UserName");
-
-                ClearErrors(nameof(UserName));
-
-                var list = new[] { "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", "\"" };
-                bool res = list.Any(value.Contains);
-                if(res)
-                {
-                    AddError(nameof(userName), "Invalid User Name. It must not contain any Special character except underscore(_)");
-                }
-            }
+            }   
         }
 
         private string passWord;
@@ -63,31 +54,30 @@ namespace BMS_WPF.ViewModel
         }
 
 
-       public  LoginSecurityCommand LoginSecurityCommand { get; set; }
-        public SignupCommand SignupCommand { get; set; }
+       public  LoginCommand LoginSecurityCommand { get; set; }
+        public CreateNewUserCommand SignupCommand { get; set; }
 
 
 
-        public LoginSecurityVM()
+        public LoginVM()
         {
-            LoginSecurityCommand = new LoginSecurityCommand(this);
-            SignupCommand = new SignupCommand(this);
+            LoginSecurityCommand = new LoginCommand(this);
+            SignupCommand = new CreateNewUserCommand(this);
         }
 
         public async void MakeQuery()
         {
-            //validation
+            
             if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(PassWord))
                 return;
             try
             {
-                string agent = await LoginSecurityHelper.LoginAgent(new LoginDetail { UserName = UserName, Password = PassWord });
+                string agent = await LoginHelper.LoginAgent(new LoginDetail {UserName = UserName, Password = PassWord });
 
                 if (agent == "User")
                 {
-                    //For User Login
+                    
                     GlobalVariables.USERNAME = UserName;
-                    //DashboardWindow dashboard = new DashboardWindow();
                     UserDashboard dashboard = new UserDashboard();
                     dashboard.Show();
                     LoginWindow obj = new LoginWindow();
@@ -115,47 +105,16 @@ namespace BMS_WPF.ViewModel
 
         public void OpenSignupWindow()
         {
-            SignupWindow signupWindow = new SignupWindow();
-            signupWindow.ShowDialog();
+            CreateNewUser createNewUser = new CreateNewUser();
+            createNewUser.ShowDialog();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        //Error Handling
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public bool HasErrors => propertyErrors.Any();
-
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return propertyErrors.GetValueOrDefault(propertyName, new List<string>());
-        }
-
-        public void AddError(string propertyName, string errorMessage)
-        {
-            if(!propertyErrors.ContainsKey(propertyName))
-            {
-                propertyErrors.Add(propertyName, new List<string>());
-            }
-
-            propertyErrors[propertyName].Add(errorMessage);
-            OnErrorsChanged(propertyName);
-        }
-
-        private void OnErrorsChanged(string propertName)
-        {
-            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertName));
-        }
-
-        private void ClearErrors(string propertyName)
-        {
- //           propertyErrors.Clear();
-            OnErrorsChanged(propertyName);
-        }
     }
 }

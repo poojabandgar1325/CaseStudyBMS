@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace BMS_WPF.ViewModel
 {
-    class PreviousAppliedLoansVM :  INotifyPropertyChanged
+    class ViewLoanVM :  INotifyPropertyChanged
     {
 
         private BindableCollection<LoanDetail> loanDetails;
@@ -33,7 +33,7 @@ namespace BMS_WPF.ViewModel
 
        
 
-        public PreviousAppliedLoansVM()
+        public ViewLoanVM()
         {
             textBlockValidation = new TextBlockValidation();
             DisplayAllAttributes();
@@ -41,7 +41,7 @@ namespace BMS_WPF.ViewModel
 
         private async void DisplayAllAttributes()
         {
-            var response = await PreviousAppliedLoansHelper.GetUserDetail(GlobalVariables.USERNAME);
+            var response = await ViewLoanHelper.GetUserDetail(GlobalVariables.USERNAME);
             LoanDetails = new BindableCollection<LoanDetail>(response);
         }
 
