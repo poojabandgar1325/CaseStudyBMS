@@ -76,7 +76,7 @@ namespace BMSWPFF
             applyLoanVM.LoanDuration = "5.0";
             applyLoanVM.LoanDuration = "0test";
             applyLoanVM.LoanDuration = "9&";
-                   }
+        }
 
      
 
