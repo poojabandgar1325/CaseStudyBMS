@@ -1,7 +1,7 @@
-﻿using BankManagement_WPF.Model;
-using BankManagement_WPF.ViewModel;
-using BankManagement_WPF.ViewModel.Commands;
-using BankManagement_WPF.ViewModel.Helpers;
+﻿using BMS_WPF.Model;
+using BMS_WPF.ViewModel;
+using BMS_WPF.ViewModel.Commands;
+using BMS_WPF.ViewModel.Helpers;
 using Moq;
 using NUnit.Framework;
 using System;

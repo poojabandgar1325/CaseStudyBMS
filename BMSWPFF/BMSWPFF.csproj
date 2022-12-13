@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BankManagement_WPF\BankManagement_WPF.csproj" />
+    <ProjectReference Include="..\BMS_WPF\BMS_WPF.csproj" />
   </ItemGroup>
 
 </Project>

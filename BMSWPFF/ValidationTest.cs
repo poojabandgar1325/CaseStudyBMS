@@ -1,4 +1,4 @@
-﻿using BankManagement_WPF.Validations;
+﻿using BMS_WPF.Validations;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;

@@ -1,8 +1,8 @@
 using AutoMapper;
-using LoginSecurity.Data;
-using LoginSecurity.Controllers;
-using LoginSecurity.Models.Domains;
-using LoginSecurity.Repositories;
+using BMS_API.Data;
+using BMS_API.Controllers;
+using BMS_API.Models.Domains;
+using BMS_API.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using NUnit.Framework;

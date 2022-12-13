@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using BankManagement_WPF.ViewModel;
+using BMS_WPF.ViewModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using BankManagement_WPF.ViewModel.Commands;
+using BMS_WPF.ViewModel.Commands;
 using System.Threading;
 
 namespace BMSWPFF

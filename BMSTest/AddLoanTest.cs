@@ -1,6 +1,6 @@
-﻿using LoginSecurity.Data;
-using LoginSecurity.Models.Domains;
-using LoginSecurity.Repositories;
+﻿using BMS_API.Data;
+using BMS_API.Models.Domains;
+using BMS_API.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using System;
